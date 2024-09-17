@@ -8,9 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        bubble: "var(--font-bubblebody)",
+        bubblebold: "var(--font-bubblebodybold)"
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 2s ease-in-out forwards',
+        fadeOut: 'fadeOut 3s ease-in-out forwards',
       },
     },
   },
