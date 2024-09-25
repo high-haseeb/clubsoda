@@ -24,7 +24,7 @@ export default function Home() {
         }
         ,
         {
-            title: "For Mutltimedia",
+            title: "For Multimedia",
             list: [
                 "Videography",
                 "Photography",
@@ -78,12 +78,13 @@ export default function Home() {
     return (
         <main className="w-screen h-screen overflow-hidden text-white font-bubblebold select-none">
             <video src="/bg.mp4" muted autoPlay loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
-            <div className="absolute top-0 left-0 px-28 py-28 flex flex-col items-end gap-4 animate-fadeOut h-screen w-screen overflow-hidden" >
-                <Image src={'/logo/logo.png'} width={1200} height={100} alt="clubsoda logo" className="" />
+            <div className="absolute top-0 left-0 px-28 py-28 flex flex-col items-end gap-4 animate-fadeOut h-screen w-screen overflow-hidden" 
+            style={{animationDelay: "1000ms"}}>
+                <Image src={'/logo/logo.png'} width={800} height={100} alt="clubsoda logo" className="" />
                 <div className="text-8xl mt-8 mr-16">Digital ingenuity</div>
                 <div className="text-5xl">Done by human intelligence</div>
             </div>
-            <Image src={'/logo/mark.png'} width={100} height={100} alt="clubsoda logo" className="absolute top-10 left-10 animate-fadeIn opacity-0" style={{ animationDelay: '3000ms' }} />
+            <Image src={'/logo/mark.png'} width={100} height={100} alt="clubsoda logo" className="absolute top-10 left-10 animate-fadeIn opacity-0" style={{ animationDelay: '4000ms' }} />
             <div className="flex flex-col absolute left-40 top-40 text-7xl gap-12 animate-fadeIn opacity-0 w-3/4 h-auto" style={{ animationDelay: '3000ms' }}>
                 {
                     items.map((item, idx) => <MenuItem {...item} key={idx} active={active} setActive={setActive}/>)
