@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
@@ -9,7 +9,7 @@ export default function Home() {
     const [activeSecondary, setActiveSecondary] = useState("");
     const [activeLink, setActiveLink] = useState("");
     return (
-        <main className="w-screen h-screen overflowhidden text-white font-bubblebold select-none py-[64px] p-[64px]">
+        <main className="w-screen h-screen overflow-hidden text-white font-bubblebold select-none py-[64px] p-[64px]">
             <video src="/bg.mp4" muted autoPlay loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
             <div className="absolute top-[215px] right-[215px] flex flex-col items-start justify-center w-auto animate-fadeOut" style={{ animationDelay: "1000ms" }}>
                 <Image src={'/logo/logo.png'} width={800} height={100} alt="clubsoda logo" className="h-[100px] w-auto aspect-auto" />
