@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import data from "@/components/linksData";
@@ -10,6 +10,11 @@ export default function Home() {
     const [activePrimary, setActivePrimary] = useState("");
     const [activeSecondary, setActiveSecondary] = useState("");
     const [activeLink, setActiveLink] = useState("");
+
+    const [introDone, setIntroDone] = useState(false);
+    useEffect(() => {
+        setTimeout(() => setIntroDone(true), 3000);
+    }, [])
 
     if (!useMobileCheck()) {
         return (
@@ -67,6 +72,7 @@ export default function Home() {
             </main >
         );
     }
+
     return (
         <main className="w-screen h-screen overflow-hidden text-white select-none p-[32px]">
             <video src="/bg.mp4" muted autoPlay loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
@@ -81,7 +87,7 @@ export default function Home() {
             </div>
 
             {activePrimary === "" ?
-                <div className='flex flex-col w-full  mt-[64px] animate-fadeIn gap-[76px] opacity-0' style={{ animationDelay: '3000ms' }}>
+                <div className={ `flex flex-col w-full mt-[64px] ${introDone ? "animate-fadeInFast" : "animate-fadeIn"} gap-[76px] opacity-0` } style={{ animationDelay: introDone ? '0ms' : '3000ms' }}>
                     <div className='flex flex-col gap-3 w-full text-[42px] font-semibold'>
                         {
                             data.map((item, idx) => <div className={`cursor-pointer leading-[1.1] transition-colors capitalize ${item.title === activePrimary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} hover:text-[#FFFEFE]`} key={idx} onClick={() => setActivePrimary(item.title)} >{item.title}</div>)
