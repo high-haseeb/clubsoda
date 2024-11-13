@@ -81,7 +81,7 @@ export default function Home() {
             </div>
 
             {activePrimary === "" ?
-                <div className='flex flex-col w-full  mt-[64px] animate-fadeIn gap-[76px]' style={{ animationDelay: '3000ms' }}>
+                <div className='flex flex-col w-full  mt-[64px] animate-fadeIn gap-[76px] opacity-0' style={{ animationDelay: '3000ms' }}>
                     <div className='flex flex-col gap-3 w-full text-[42px] font-semibold'>
                         {
                             data.map((item, idx) => <div className={`cursor-pointer leading-[1.1] transition-colors capitalize ${item.title === activePrimary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} hover:text-[#FFFEFE]`} key={idx} onClick={() => setActivePrimary(item.title)} >{item.title}</div>)
