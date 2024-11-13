@@ -1,22 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Fredoka } from "next/font/google";
 import "./globals.css";
-
-const bubblebody = localFont({
-  src: "./fonts/bubbleboddyneue-regular trial.ttf",
-  variable: "--font-bubblebody",
-  weight: "500",
-});
-const bubblebodybold = localFont({
-  src: "./fonts/BubbleboddyNeue-Bold Trial.ttf",
-  variable: "--font-bubblebodybold",
-  weight: "900",
-});
 
 export const metadata: Metadata = {
   title: "clubsoda",
   description: "made by high-haseeb",
 };
+const fredoka = Fredoka({
+  subsets: ["latin"],
+})
 
 export default function RootLayout({
   children,
@@ -26,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bubblebody.variable} ${bubblebodybold.variable} antialiased`}
+        className={`${fredoka.className} antialiased`}
       >
         {children}
       </body>
