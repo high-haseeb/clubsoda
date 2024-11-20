@@ -66,7 +66,6 @@ const data = [
 
             {
                 title: "VTuber builder", list: [
-                    ""
                 ]
             },
 
