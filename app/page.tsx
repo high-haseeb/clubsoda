@@ -43,7 +43,15 @@ export default function Home() {
                                             onClick={() => setActiveSecondary(secondaryItem.title)}
                                         >
                                             <div className={`capitalize transition-colors ${secondaryItem.title === activeSecondary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} group-hover:text-[#FFFEFE] `} key={idx} >{secondaryItem.title}</div>
-                                            <Image src={'/icons/left.svg'} width={10} height={10} alt='arrow-open' className={`w-[20px] h-[16px] ${secondaryItem.title === activeSecondary ? "opacity-100" : "opacity-0"} transition-opacity group-hover:opacity-100`} />
+                                            {
+                                                secondaryItem.list.length > 0 ?
+                                                    <Image src={'/icons/left.svg'} width={10} height={10} alt='arrow-open' className={`w-[20px] h-[16px] ${secondaryItem.title === activeSecondary ? "opacity-100" : "opacity-0"} transition-opacity group-hover:opacity-100`} />
+                                                    :
+                                                    <Link href={secondaryItem.title}>
+                                                        <Image src={'/icons/open.svg'} width={10} height={10} alt='arrow-open' className={`w-[20px] h-[16px] ${secondaryItem.title === activeSecondary ? "opacity-100" : "opacity-0"} transition-opacity group-hover:opacity-100`} />
+                                                    </Link>
+
+                                            }
                                         </div>
                                     ))
                             }
@@ -59,7 +67,10 @@ export default function Home() {
                                                 href={link}
                                             >
                                                 <div className={`cursor-pointer capitalize transition-colors ${link === activeLink ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} group-hover:text-[#FFFEFE]`} key={idx} onClick={() => setActiveLink(link)} >{link}</div>
-                                                <Image src={'/icons/open.svg'} width={10} height={10} alt='arrow-open' className={`w-[20px] h-[16px] ${link === activeLink ? "opacity-100" : "opacity-0"} transition-opacity group-hover:opacity-100`} />
+                                                {
+                                                    secondaryItem.list.length > 0 &&
+                                                    <Image src={'/icons/open.svg'} width={10} height={10} alt='arrow-open' className={`w-[20px] h-[16px] ${link === activeLink ? "opacity-100" : "opacity-0"} transition-opacity group-hover:opacity-100`} />
+                                                }
                                             </Link>
                                         )))
                             }
@@ -77,7 +88,7 @@ export default function Home() {
 
     return (
         <main className="w-screen h-screen overflow-hidden text-white select-none p-[32px]">
-            <video src="/bg.mp4" muted autoPlay loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
+            <video src="/bg.mp4" muted autoPlay playsInline controls={false} loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
             <div className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-full animate-fadeOut p-[32px]" style={{ animationDelay: "1000ms" }}>
                 <Image src={'/logo/logo.png'} width={280} height={60} alt="clubsoda logo" className="h-[50px] w-auto object-cover" />
                 <div className="text-[40px] font-semibold leading-none mt-[24px]  w-full text-center">{"Digital Solution"} </div>
@@ -89,7 +100,7 @@ export default function Home() {
             </div>
 
             {activePrimary === "" ?
-                <div className={ `flex flex-col w-full mt-[64px] ${introDone ? "animate-fadeInFast" : "animate-fadeIn"} gap-[76px] opacity-0` } style={{ animationDelay: introDone ? '0ms' : '3000ms' }}>
+                <div className={`flex flex-col w-full mt-[64px] ${introDone ? "animate-fadeInFast" : "animate-fadeIn"} gap-[76px] opacity-0`} style={{ animationDelay: introDone ? '0ms' : '3000ms' }}>
                     <div className='flex flex-col gap-3 w-full text-[42px] font-semibold'>
                         {
                             data.map((item, idx) => <div className={`cursor-pointer leading-[1.1] transition-colors capitalize ${item.title === activePrimary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} hover:text-[#FFFEFE]`} key={idx} onClick={() => setActivePrimary(item.title)} >{item.title}</div>)
