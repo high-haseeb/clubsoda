@@ -7,7 +7,7 @@ const data = [
                     "framer",
                     "webflow",
                     "custom website",
-                    "eCommerece",
+                    "eCommerce",
                     "web funnel",
                     "landing pages",
                     "PWA development",
@@ -16,7 +16,7 @@ const data = [
             },
             {
                 title: "Mobile", list: [
-                    "adolo apps",
+                    "adalo apps",
                     "native apps",
                     "cross-platform apps",
                     "enterprise mobile",
@@ -41,8 +41,8 @@ const data = [
             {
                 title: "tech consulting", list: [
                     "digital transformation",
-                    "AI strategy & redesign",
-                    "digital commerece strategy",
+                    "AI strategy & reinvention",
+                    "digital commerce strategy",
                     "digital funnel optimization",
                     "fast MVP",
                     "devOps strategy",
@@ -56,7 +56,7 @@ const data = [
         title: "for multimedia",
         list: [
             {
-                title: "visiual media", list: [
+                title: "visual media", list: [
                     "photography",
                     "videography",
                     "motion graphics",
@@ -65,16 +65,16 @@ const data = [
             },
 
             {
-                title: "VTuber creation", list: [
+                title: "VTuber builder", list: [
                     ""
                 ]
             },
 
             {
                 title: "3d modeling & rendering", list: [
-                    "product visiualization",
+                    "product visualization",
                     "character modeling",
-                    "conceptual visiualization",
+                    "conceptual visualization",
                     "3D environment",
                 ]
             },
@@ -112,9 +112,9 @@ const data = [
                 ]
             },
             {
-                title: "brand strategy & visiual identity", list: [
+                title: "brand strategy & visual identity", list: [
                     "brand strategy & narrative",
-                    "visiual identity",
+                    "visual identity",
                     "brand audit & guidelines",
                 ]
             },
