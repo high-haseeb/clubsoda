@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import data from "@/components/linksData";
@@ -10,11 +10,6 @@ export default function Home() {
     const [activePrimary, setActivePrimary] = useState("");
     const [activeSecondary, setActiveSecondary] = useState("");
     const [activeLink, setActiveLink] = useState("");
-
-    const [introDone, setIntroDone] = useState(false);
-    useEffect(() => {
-        setTimeout(() => setIntroDone(true), 3000);
-    }, [])
 
     if (!useMobileCheck()) {
         return (
