@@ -39,6 +39,7 @@ export default function Home() {
                                 data.map((item) =>
                                     item.list.map((secondaryItem, idx) =>
                                         <div className={`cursor-pointer flex items-baseline gap-3 text-3xl font-semibold ${activePrimary === item.title ? "block opacity-0" : "hidden"} animate-fadeInFast group`}
+                                            key={idx}
                                             onClick={() => setActiveSecondary(secondaryItem.title)}
                                         >
                                             <div className={`capitalize transition-colors ${secondaryItem.title === activeSecondary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} group-hover:text-[#FFFEFE] `} key={idx} >{secondaryItem.title}</div>
@@ -54,6 +55,7 @@ export default function Home() {
                                     item.list.map((secondaryItem) =>
                                         secondaryItem.list.map((link, idx) =>
                                             <Link className={`group flex gap-3 items-baseline text-3xl font-semibold animate-fadeInFast ${activeSecondary === secondaryItem.title && activePrimary === item.title ? "opacity-0 block" : "hidden"}`}
+                                                key={idx}
                                                 href={link}
                                             >
                                                 <div className={`cursor-pointer capitalize transition-colors ${link === activeLink ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} group-hover:text-[#FFFEFE]`} key={idx} onClick={() => setActiveLink(link)} >{link}</div>
