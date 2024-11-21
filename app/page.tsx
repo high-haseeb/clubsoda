@@ -26,11 +26,11 @@ export default function Home() {
                     <div className="text-4xl font-semibold leading-none self-end">{"& Talent Network Hub "}</div>
                 </div>
                 <div className="flex items-start w-full">
-                    <Image src={'/logo/mark.png'} width={150} height={160} alt="clubsoda logo" className="w-36 animate-fadeIn opacity-0" style={{ animationDelay: "3000ms" }} />
+                    <Image src={'/logo/mark.png'} width={150} height={160} alt="clubsoda logo" className="w-28 animate-fadeIn opacity-0" style={{ animationDelay: "3000ms" }} />
                 </div>
                 <div className='flex flex-col w-full px-36 mt-16 mb-16 animate-fadeIn opacity-0 gap-20' style={{ animationDelay: '3000ms' }}>
-                    <div className="text-6xl grid grid-cols-7 justify-items-start gap-x-24 h-auto font-semibold">
-                        <div className='flex flex-col gap-6 w-full col-span-3'>
+                    <div className="text-large leading-large grid grid-cols-7 justify-items-start gap-x-24 h-auto font-semibold">
+                        <div className='flex flex-col gap-5 w-full col-span-3'>
                             {
                                 data.map((item, idx) => <div className={`cursor-pointer transition-colors capitalize ${item.title === activePrimary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} hover:text-[#FFFEFE]`} key={idx} onClick={() => setActivePrimary(item.title)} >{item.title}</div>)
                             }
@@ -40,7 +40,7 @@ export default function Home() {
                             {
                                 data.map((item) =>
                                     item.list.map((secondaryItem, idx) =>
-                                        <div className={`cursor-pointer flex items-baseline gap-3 text-2xl font-semibold ${activePrimary === item.title ? "block opacity-0" : "hidden"} animate-fadeInFast group`}
+                                        <div className={`cursor-pointer flex items-baseline gap-3 text-small leading-small font-semibold ${activePrimary === item.title ? "block opacity-0" : "hidden"} animate-fadeInFast group`}
                                             key={idx}
                                             onClick={() => setActiveSecondary(secondaryItem.title)}
                                         >
@@ -64,7 +64,7 @@ export default function Home() {
                                 data.map((item) =>
                                     item.list.map((secondaryItem) =>
                                         secondaryItem.list.map((link, idx) =>
-                                            <Link className={`group flex gap-3 items-baseline text-2xl font-semibold animate-fadeInFast ${activeSecondary === secondaryItem.title && activePrimary === item.title ? "opacity-0 block" : "hidden"}`}
+                                            <Link className={`group flex gap-3 items-baseline text-small leading-small font-semibold animate-fadeInFast ${activeSecondary === secondaryItem.title && activePrimary === item.title ? "opacity-0 block" : "hidden"}`}
                                                 key={idx}
                                                 href={link}
                                             >
@@ -78,7 +78,7 @@ export default function Home() {
                             }
                         </div>
                     </div>
-                    <div className="flex flex-col text-xl text-[#FFFEFE]/60 font-semibold justify-self-end">
+                    <div className="flex flex-col text-small leading-small text-[#FFFEFE]/60 font-semibold justify-self-end">
                         <Link href={'/about'}>About</Link>
                         <Link href={'/recruit'}>Recruit</Link>
                         <Link href={'/contact'}>Contact</Link>

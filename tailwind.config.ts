@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        large: "3.0rem",
+        small: "1.5rem",
+      },
+      lineHeight: {
+        large: "3rem",
+        small: "1.25rem",
+      },
       fontFamily: {
         fredoka: "var(--font-fredoka)",
       },
