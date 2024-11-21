@@ -10,11 +10,11 @@ const Recruit = () => {
     return (
         <main className="w-screen h-screen overflow-hidden text-white font-fredoka p-16 flex flex-col gap-16 select-none relative">
 
-            <Image src="/recruit-bg.png" width={1920} height={1080} alt='bg' className="w-screen h-screen -z-40 object-cover absolute top-0 left-0" />
+            <Image src="/recruit-bg.png" width={1920} height={1080} alt='bg' className="w-screen h-screen -z-50 object-cover absolute top-0 left-0" />
 
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-screen h-screen pointer-events-none bg-black ${section !== 0 ? "opacity-100" : "opacity-0"} transition-opacity duration-500 -z-30`} />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-screen h-screen pointer-events-none bg-black ${section !== 0 ? "opacity-100" : "opacity-0"} transition-opacity duration-500 -z-40`} />
 
-            <div className="flex flex-col gap-6 items-start">
+            <div className="flex flex-col gap-6 items-start z-50">
                 <Header />
                 {
                     section === 0 && <NavLinks />
@@ -39,7 +39,7 @@ const Recruit = () => {
             }
             {
                 section === 1 &&
-                <div className="flex items-center justify-center w-full h-full">
+                <div className="flex items-center justify-center w-full h-full z-50">
                     <div className="flex flex-col gap-24 w-1/2">
                         <button className="flex text-2xl gap-3" onClick={() => setSection(0)}>
                             <Image src={'/icons/back.svg'} alt='back' width={20} height={20} className="w-5" />
@@ -66,7 +66,7 @@ const Recruit = () => {
             }
             {
                 section === 2 &&
-                <div className='flex items-center justify-center w-full h-full'>
+                <div className='flex items-center justify-center w-full h-full z-50'>
                     <div className='flex w-2/3 bg-white h-full rounded-2xl p-4 relative'>
                         <Image src={'/bg-2.png'} width={500} height={500} alt='bg' className='w-2/5 object-cover bg-black rounded--xl' />
                         <div className='flex flex-col absolute top-10 left-10'>
