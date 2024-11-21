@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import data from "@/components/linksData";
 import useMobileCheck from "@/components/isMobile";
+import Head from 'next/head';
 
 export default function Home() {
 
@@ -89,68 +90,76 @@ export default function Home() {
     }
 
     return (
-        <main className="w-screen h-screen overflow-hidden text-white select-none p-[32px]">
-            <video src="/bg.mp4" muted autoPlay playsInline controls={false} loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
-            <div className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-full animate-fadeOut p-[32px]" style={{ animationDelay: "1000ms" }}>
-                <Image src={'/logo/logo.png'} width={280} height={60} alt="clubsoda logo" className="h-[50px] w-auto object-cover" />
-                <div className="text-[40px] font-semibold leading-none mt-[24px]  w-full text-center">{"Digital Solution"} </div>
-                <div className="text-[24px] text-white/80 font-semibold ">{"& Talent Network Hub "}</div>
-            </div>
+        <>
+            <Head>
+                <link rel='preload' href='/icons/left.svg' as='image'/>
+                <link rel='preload' href='/icons/open.svg' as='image'/>
+                <link rel='preload' href='/logo/mark.svg' as='image'/>
+                <link rel='preload' href='/logo/logo.png' as='image'/>
+            </Head>
 
-            <div className="flex items-start w-full">
-                <Image src={'/logo/mark.png'} width={150} height={160} alt="clubsoda logo" className="h-[60px] w-[50px] animate-fadeIn opacity-0 object-cover" style={{ animationDelay: "3000ms" }} />
-            </div>
-
-            {activePrimary === "" ?
-                <div className={`flex flex-col w-full mt-[64px] ${introDone ? "animate-fadeInFast" : "animate-fadeIn"} gap-[76px] opacity-0`} style={{ animationDelay: introDone ? '0ms' : '3000ms' }}>
-                    <div className='flex flex-col gap-3 w-full text-[42px] font-semibold'>
-                        {
-                            data.map((item, idx) => <div className={`cursor-pointer leading-[1.1] transition-colors capitalize ${item.title === activePrimary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} hover:text-[#FFFEFE]`} key={idx} onClick={() => setActivePrimary(item.title)} >{item.title}</div>)
-                        }
-                    </div>
-
-                    <div className="flex flex-col text-2xl text-[#FFFEFE]/60 font-semibold justify-self-end">
-                        <Link href={'/about'}>About</Link>
-                        <Link href={'/recruit'}>Recruit</Link>
-                        <Link href={'/contact'}>Contact</Link>
-                    </div>
+            <main className="w-screen h-screen overflow-hidden text-white select-none p-[32px]">
+                <video src="/bg.mp4" muted autoPlay playsInline controls={false} loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
+                <div className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-full animate-fadeOut p-[32px]" style={{ animationDelay: "1000ms" }}>
+                    <Image src={'/logo/logo.png'} width={280} height={60} alt="clubsoda logo" className="h-[50px] w-auto object-cover" />
+                    <div className="text-[40px] font-semibold leading-none mt-[24px]  w-full text-center">{"Digital Solution"} </div>
+                    <div className="text-[24px] text-white/80 font-semibold ">{"& Talent Network Hub "}</div>
                 </div>
-                :
-                activeSecondary === "" ?
-                    <div>
-                        <div className='flex flex-col w-full  mt-[64px] animate-fadeInFast opacity-0 gap-[32px]'>
-                            <div className='flex items-baseline gap-3 w-full text-[40px] font-semibold' onClick={() => setActivePrimary("")}>
-                                <Image src={"/icons/left.svg"} width={30} height={20} className='w-6 h-6 object-cover rotate-180' alt='back' />
-                                <div className='capitalize'>{activePrimary}</div>
-                            </div>
-                            <div className='flex flex-col gap-2'>
-                                {data.filter((item) => item.title === activePrimary)[0].list.map((secondary, index) =>
-                                    <div key={index} className='font-semibold text-white/60 text-[28px] capitalize' onClick={() => setActiveSecondary(secondary.title)}>{secondary.title}</div>
-                                )}
-                            </div>
+
+                <div className="flex items-start w-full">
+                    <Image src={'/logo/mark.png'} width={150} height={160} alt="clubsoda logo" className="h-[60px] w-[50px] animate-fadeIn opacity-0 object-cover" style={{ animationDelay: "3000ms" }} />
+                </div>
+
+                {activePrimary === "" ?
+                    <div className={`flex flex-col w-full mt-[64px] ${introDone ? "animate-fadeInFast" : "animate-fadeIn"} gap-[76px] opacity-0`} style={{ animationDelay: introDone ? '0ms' : '3000ms' }}>
+                        <div className='flex flex-col gap-3 w-full text-[42px] font-semibold'>
+                            {
+                                data.map((item, idx) => <div className={`cursor-pointer leading-[1.1] transition-colors capitalize ${item.title === activePrimary ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} hover:text-[#FFFEFE]`} key={idx} onClick={() => setActivePrimary(item.title)} >{item.title}</div>)
+                            }
+                        </div>
+
+                        <div className="flex flex-col text-2xl text-[#FFFEFE]/60 font-semibold justify-self-end">
+                            <Link href={'/about'}>About</Link>
+                            <Link href={'/recruit'}>Recruit</Link>
+                            <Link href={'/contact'}>Contact</Link>
                         </div>
                     </div>
                     :
-                    <div>
-                        <div className='flex flex-col w-full  mt-[64px] animate-fadeInFast opacity-0 gap-[32px]'>
-                            <div className='flex items-baseline gap-3 w-full text-[40px] font-semibold' onClick={() => setActiveSecondary("")}>
-                                <Image src={"/icons/left.svg"} width={30} height={20} className='w-6 h-6 object-cover rotate-180' alt='back' />
-                                <div className='capitalize'>{activeSecondary}</div>
-                            </div>
-                            <div className='flex flex-col gap-2 w-full'>
-                                {
-                                    data.filter((item) => item.title === activePrimary)[0].list.map((secondary) =>
-                                        secondary.title === activeSecondary ?
-                                            secondary.list.map((link, index) =>
-                                                <Link key={index} className='font-semibold text-white/60 text-[28px] capitalize' href={link}>{link}</Link>
-                                            )
-                                            : null
-                                    )
-                                }
+                    activeSecondary === "" ?
+                        <div>
+                            <div className='flex flex-col w-full  mt-[64px] animate-fadeInFast opacity-0 gap-[32px]'>
+                                <div className='flex items-baseline gap-3 w-full text-[40px] font-semibold' onClick={() => setActivePrimary("")}>
+                                    <Image src={"/icons/left.svg"} width={30} height={20} className='w-6 h-6 object-cover rotate-180' alt='back' />
+                                    <div className='capitalize'>{activePrimary}</div>
+                                </div>
+                                <div className='flex flex-col gap-2'>
+                                    {data.filter((item) => item.title === activePrimary)[0].list.map((secondary, index) =>
+                                        <div key={index} className='font-semibold text-white/60 text-[28px] capitalize' onClick={() => setActiveSecondary(secondary.title)}>{secondary.title}</div>
+                                    )}
+                                </div>
                             </div>
                         </div>
-                    </div>
-            }
-        </main>
+                        :
+                        <div>
+                            <div className='flex flex-col w-full  mt-[64px] animate-fadeInFast opacity-0 gap-[32px]'>
+                                <div className='flex items-baseline gap-3 w-full text-[40px] font-semibold' onClick={() => setActiveSecondary("")}>
+                                    <Image src={"/icons/left.svg"} width={30} height={20} className='w-6 h-6 object-cover rotate-180' alt='back' />
+                                    <div className='capitalize'>{activeSecondary}</div>
+                                </div>
+                                <div className='flex flex-col gap-2 w-full'>
+                                    {
+                                        data.filter((item) => item.title === activePrimary)[0].list.map((secondary) =>
+                                            secondary.title === activeSecondary ?
+                                                secondary.list.map((link, index) =>
+                                                    <Link key={index} className='font-semibold text-white/60 text-[28px] capitalize' href={link}>{link}</Link>
+                                                )
+                                                : null
+                                        )
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                }
+            </main></>
     )
 }
