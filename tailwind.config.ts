@@ -14,7 +14,7 @@ const config: Config = {
       },
       lineHeight: {
         large: "3rem",
-        small: "1.25rem",
+        small: "1.5rem",
       },
       fontFamily: {
         fredoka: "var(--font-fredoka)",
