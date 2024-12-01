@@ -10,7 +10,7 @@ const Recruit = () => {
     return (
         <main className="w-screen h-screen overflow-hidden text-white font-fredoka p-16 flex flex-col gap-16 select-none relative">
 
-            <Image src="/recruit-bg.png" width={1920} height={1080} alt='bg' className="w-screen h-screen -z-50 object-cover absolute top-0 left-0" />
+            <video src="/bg-vids/red-balls.mp4" muted autoPlay loop className="object-cover -z-10 absolute top-0 left-0 w-screen h-screen"></video>
 
             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-screen h-screen pointer-events-none bg-black ${section !== 0 ? "opacity-100" : "opacity-0"} transition-opacity duration-500 -z-40`} />
 
