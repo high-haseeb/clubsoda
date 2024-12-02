@@ -50,7 +50,7 @@ export default function Home() {
                                                 secondaryItem.list.length > 0 ?
                                                     <Image src={'/icons/left.svg'} width={10} height={10} alt='arrow-open' className={`w-5 h-4 ${secondaryItem.title === activeSecondary ? "opacity-100" : "opacity-0"} transition-opacity group-hover:opacity-100`} />
                                                     :
-                                                    <Link href={secondaryItem.title}>
+                                                    <Link href={`/services/${secondaryItem.title}`}>
                                                         <Image src={'/icons/open.svg'} width={10} height={10} alt='arrow-open' className={`w-5 h-4 ${secondaryItem.title === activeSecondary ? "opacity-100" : "opacity-0"} transition-opacity group-hover:opacity-100`} />
                                                     </Link>
 
@@ -67,7 +67,7 @@ export default function Home() {
                                         secondaryItem.list.map((link, idx) =>
                                             <Link className={`group flex gap-3 items-baseline text-small leading-small font-semibold animate-fadeInFast ${activeSecondary === secondaryItem.title && activePrimary === item.title ? "opacity-0 block" : "hidden"}`}
                                                 key={idx}
-                                                href={link}
+                                                href={`/services/${link}`}
                                             >
                                                 <div className={`cursor-pointer capitalize transition-colors ${link === activeLink ? "text-[#FFFEFE]" : "text-[#fffefe]/80"} group-hover:text-[#FFFEFE]`} key={idx} onClick={() => setActiveLink(link)} >{link}</div>
                                                 {
@@ -92,10 +92,10 @@ export default function Home() {
     return (
         <>
             <Head>
-                <link rel='preload' href='/icons/left.svg' as='image'/>
-                <link rel='preload' href='/icons/open.svg' as='image'/>
-                <link rel='preload' href='/logo/mark.svg' as='image'/>
-                <link rel='preload' href='/logo/logo.png' as='image'/>
+                <link rel='preload' href='/icons/left.svg' as='image' />
+                <link rel='preload' href='/icons/open.svg' as='image' />
+                <link rel='preload' href='/logo/mark.svg' as='image' />
+                <link rel='preload' href='/logo/logo.png' as='image' />
             </Head>
 
             <main className="w-screen h-screen overflow-hidden text-white select-none p-[32px]">
@@ -151,7 +151,7 @@ export default function Home() {
                                         data.filter((item) => item.title === activePrimary)[0].list.map((secondary) =>
                                             secondary.title === activeSecondary ?
                                                 secondary.list.map((link, index) =>
-                                                    <Link key={index} className='font-semibold text-white/60 text-[28px] capitalize' href={link}>{link}</Link>
+                                                    <Link key={index} className='font-semibold text-white/60 text-[28px] capitalize' href={`/services/${link}`}>{link}</Link>
                                                 )
                                                 : null
                                         )
